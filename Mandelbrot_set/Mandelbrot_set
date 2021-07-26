@@ -1,0 +1,38 @@
+float x;
+float y;
+float x0;
+float y0;
+
+void setup()
+{
+	size(800,800);
+	noLoop();
+}
+
+void draw()
+{
+	background(0);
+	for(int i=0;i<width;i++)
+	{
+		for(int j=0;j<height;j++)
+		{
+			x = map(i,0,width,-2,2);
+			y = map(j,0,height,-2,2);
+			x0 = x;
+			y0 = y;
+			for(int k = 0;k<100;k++)
+			{
+				x0 = x0*x0 - y0*y0;
+				y0 = x0*x0 + y0*y0;
+			}
+			if((x0*x0 + y0*y0)/(x*x + y*y)<=1)
+			{
+				println("1");
+			}
+			else 
+			{
+				println("00");			
+			}
+		}
+	}
+}
